@@ -18,6 +18,13 @@ export default function Create() {
   const [successMessage, setSuccessMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const handleFeedbackClick = () => {
+    const phoneNumber = "+2349039492387"; // Replace with your actual WhatsApp number
+    const message = "Hi Dcrony, I have feedback about your Valentine app!";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+  };
+
   const handleSubmit = async () => {
     // Basic form validation
     if (!form.senderName.trim() || !form.receiverName.trim() || !form.message.trim()) {
@@ -77,6 +84,22 @@ export default function Create() {
 
   return (
     <div className="create-container">
+      {/* Creator and Feedback Header */}
+      <div className="creator-header">
+        <div className="creator-info">
+          <span className="creator-label">Created by</span>
+          <span className="creator-name">Dcrony</span>
+        </div>
+        <button 
+          className="feedback-button"
+          onClick={handleFeedbackClick}
+          title="Send feedback via WhatsApp"
+        >
+          <span className="feedback-icon">💬</span>
+          Feedback
+        </button>
+      </div>
+
       <div className="create-card">
         <h1 className="create-title">
           Create Valentine 💌
