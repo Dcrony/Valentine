@@ -7,6 +7,10 @@ const styles = {
   container: {
     padding: '32px',
     backgroundColor: '#f9fafb',
+    backgroundImage: "url('/image.png')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
     minHeight: '100vh',
     boxSizing: 'border-box'
   },
