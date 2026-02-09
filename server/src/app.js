@@ -6,7 +6,8 @@ const app = express();
 
 // Allow all origins (use only for development/testing)
 app.use(cors({
-  origin: '*',
+  origin: true, // Allow any origin
+  credentials: true, // Allow cookies
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Accept']
 }));
