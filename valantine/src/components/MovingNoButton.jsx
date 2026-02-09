@@ -66,10 +66,17 @@ export default function MovingNoButton({ onClick }) {
       ref={buttonRef}
       style={styles.button}
       onMouseEnter={moveButton}
-      // On mobile, touch might trigger click, so we move on touch start too
-      onTouchStart={moveButton}
+      // On mobile, touch start triggers movement immediately
+      onTouchStart={(e) => {
+        // e.preventDefault(); // React 18+ events are passive by default, avoiding preventDefault here to stop console warnings
+        moveButton();
+      }}
       onClick={(e) => {
-        // Just in case they preserve, clicking still works (or we can block it)
+        e.preventDefault();
+        e.stopPropagation();
+        // If the button is currently 'fixed' (moving), we ignore clicks just to be safe
+        if (position) return;
+
         onClick();
       }}
     >

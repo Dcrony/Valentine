@@ -1,4 +1,4 @@
-import Valentine from "../models/Valentine.js";
+import Valentine from "../models/valentine.js";
 import { generateLinkId } from "../utils/generateId.js";
 
 export const createValentine = async (req, res) => {
@@ -40,9 +40,9 @@ export const createValentine = async (req, res) => {
     });
   } catch (err) {
     console.error("Create Valentine Error:", err);
-    res.status(500).json({ 
+    res.status(500).json({
       error: "Failed to create valentine",
-      details: err.message 
+      details: err.message
     });
   }
 };
