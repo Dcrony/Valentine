@@ -8,6 +8,7 @@ export default function AdminUsers() {
     const [error, setError] = useState(null);
     const [adminKey, setAdminKey] = useState(localStorage.getItem('adminKey') || 'ibrahim');
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
         const storedKey = localStorage.getItem('adminKey');
