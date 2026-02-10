@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import valentineRoutes from "./routes/valentineRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -11,11 +12,13 @@ app.use(cors({
   origin: true, // Allow any origin
   credentials: true, // Allow cookies
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Accept']
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'x-admin-key']
 }));
 
+app.get("/api/health", (req, res) => res.json({ status: "ok" }));
 app.use(express.json());
 app.use("/api/valentine", valentineRoutes);
+app.use("/api/admin", adminRoutes);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
