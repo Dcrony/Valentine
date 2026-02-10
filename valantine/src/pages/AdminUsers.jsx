@@ -70,7 +70,7 @@ export default function AdminUsers() {
                     <h1 className="admin-title">Admin Access</h1>
                     <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '1rem' }}>
                         <div style={{ textAlign: 'center', marginBottom: '1rem', color: '#4b5563' }}>
-                            Using embedded credentials: <strong>ibrahim</strong>
+                           
                         </div>
                         <input
                             type="password"

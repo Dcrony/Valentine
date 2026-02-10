@@ -8,12 +8,8 @@ import { fileURLToPath } from "url";
 const app = express();
 
 // Allow all origins (use only for development/testing)
-app.use(cors({
-  origin: true, // Allow any origin
-  credentials: true, // Allow cookies
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'x-admin-key']
-}));
+app.use(cors());
+app.options(/(.*)/, cors()); // Enable pre-flight for all routes
 
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));
 app.use(express.json());
