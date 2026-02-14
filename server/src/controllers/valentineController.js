@@ -35,8 +35,8 @@ export const createValentine = async (req, res) => {
     // Return the response in the format your frontend expects
     res.status(201).json({
       success: true, // Frontend doesn't expect this
-      publicLink: `${process.env.FRONTEND_URL || 'http://localhost:3000'}/val/${linkId}`,
-      dashboardLink: `${process.env.FRONTEND_URL || 'http://localhost:3000'}/dashboard/${linkId}`
+      publicLink: `${(process.env.FRONTEND_URL || 'http://localhost:3000').replace(/\/$/, '')}/val/${linkId}`,
+      dashboardLink: `${(process.env.FRONTEND_URL || 'http://localhost:3000').replace(/\/$/, '')}/dashboard/${linkId}`
     });
   } catch (err) {
     console.error("Create Valentine Error:", err);
